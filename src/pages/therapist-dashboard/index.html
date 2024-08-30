@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>therapist dashboard</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header>
+        <h2>Therapist Dashboard</h2>
+        <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="avatar" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+            <path fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+        </svg>
+    </header>
+
+    <nav>
+        <ul class="menu">
+            <li>Patient List</li>
+            <li>Management</li>
+        </ul>
+    </nav>
+
+    <div class="panel">
+        <div class="container">
+            <div class="search-container">
+                <input class="search" type="search" placeholder="search">
+            </div>
+            <div class="edit-container">
+                <button class="new-btn">
+                    New
+                </button>
+
+                <ul class="badges">
+                    <li class="badge" draggable="true">small</li>
+                    <li class="badge" draggable="true">middle</li>
+                    <li class="badge" draggable="true">severe</li>
+                </ul>
+
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>patient id</th>
+                            <th>name</th>
+                            <th>status</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="entry">
+                            <td>0</td>
+                            <td>smith</td>
+                            <td class="droppable">put here</td>
+                            <td>
+                                <ul class="actions">
+                                    <li>
+                                        <button class="highlight-btn">
+                                            highlight
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button class="detail-btn">
+                                            detail
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button>
+                                            edit
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button>
+                                            delete
+                                        </button>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./js/therapist-dashboard.js"></script>
+</body>
+
+</html>
