@@ -51,14 +51,34 @@ highlightBtns.forEach((highlightBtn) => {
     highlightBtn.addEventListener('click', (event) => {
         const row = highlightBtn.closest('.entry')
         // console.log(row);
-        row.style.backgroundColor = 'pink'
+        if (row.style.backgroundColor != 'pink') {
+            row.style.backgroundColor = 'pink'
+
+        }
+        else {
+            row.style.backgroundColor = ''
+        }
     })
 })
 
-const detailBtns = document.querySelectorAll('.detail-btn')
+// const detailBtns = document.querySelectorAll('.detail-btn')
 
-detailBtns.forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-        window.location.href = './detail/index.html'
-    })
-})
+// detailBtns.forEach(btn => {
+//     btn.addEventListener('click', () => {
+//         // window.location.href = './detail/index.html'
+//         // 获取按钮所在行的父元素 (tr)
+//         const row = btn.closest('tr');
+
+//         // 获取 ID 和名字（假设 ID 在第一个 <td>，名字在第二个 <td>）
+//         const entryId = row.children[0].textContent.trim();
+//         const entryName = row.children[1].textContent.trim();
+
+//         // 构建 URL，附加查询参数
+//         const url = new URL('./detail/index.html', window.location.href);
+//         url.searchParams.set('id', entryId);
+//         url.searchParams.set('name', entryName);
+
+//         // 导航到新页面
+//         window.location.href = url.toString();
+//     })
+// })
