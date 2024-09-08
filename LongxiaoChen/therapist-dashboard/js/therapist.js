@@ -271,7 +271,7 @@ const handleDetail = (event) => {
 
 
     // 构建 URL，附加查询参数
-    const url = new URL('./detail/index.html', window.location.href);
+    const url = new URL('./detail.html', window.location.href);
     url.searchParams.set('id', entryId);
     url.searchParams.set('name', entryName);
     if (status.children.length !== 0) {
