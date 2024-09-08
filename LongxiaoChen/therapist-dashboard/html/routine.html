@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>therapist dashboard</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/routine.css">
 </head>
 
 <body>
@@ -21,8 +21,8 @@
 
     <nav>
         <ul class="menu">
-            <li><a href="index.html">Patient List</a></li>
-            <li><a href="./routine/index.html">Daily Routine</a></li>
+            <li><a href="../index.html">Patient List</a></li>
+            <li><a href="index.html">Daily Routine</a></li>
         </ul>
     </nav>
 
@@ -32,14 +32,14 @@
                 <input class="search" type="search" placeholder="search">
             </div>
             <div class="edit-container">
-                <button class="new-btn">
+                <button class="new-btn" onclick="handleNew(event)">
                     New
                 </button>
 
                 <ul class="badges">
-                    <li class="badge" draggable="true">small</li>
+                    <li class="badge" draggable="true">low</li>
                     <li class="badge" draggable="true">middle</li>
-                    <li class="badge" draggable="true">severe</li>
+                    <li class="badge" draggable="true">high</li>
                 </ul>
 
             </div>
@@ -47,29 +47,26 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>patient id</th>
+                            <th>ID</th>
                             <th>name</th>
-                            <th>status</th>
+                            <th>time</th>
+                            <th>priority</th>
                             <th>action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <tr class="entry">
+                        <tr class="entry">
                             <td>0</td>
-                            <td>smith</td>
+                            <td>online meeting</td>
+                            <td>2pm</td>
                             <td class="droppable">
-                                &nbsp;
+
                             </td>
                             <td>
                                 <ul class="actions">
                                     <li>
-                                        <button onclick="handleHighlight(event)" class="highlight-btn">
+                                        <button class="highlight-btn">
                                             highlight
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button class="detail-btn">
-                                            detail
                                         </button>
                                     </li>
                                     <li>
@@ -84,7 +81,7 @@
                                     </li>
                                 </ul>
                             </td>
-                        </tr> -->
+                        </tr>
 
                     </tbody>
                 </table>
@@ -92,29 +89,33 @@
         </div>
     </div>
 
-    <!-- <div>
-        <button class="edit-btn">
-            Edit
-        </button>
-    </div> -->
-
-    <div id="editModal" class="modal">
+    <div class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Edit Information</h3>
-            ID:
-            <span id="ID"></span>
-            <br>
-            <label for="">
-                Name:
-                <input type="text">
-            </label>
+            <span class="close" onclick="handleClose(event)">&times;</span>
+            <div>
+                <label for="">Name: <input type="text" id="name"></label>
+            </div>
+            <div>
+                <label for="">Time: <input type="text" id="time"></label>
+            </div>
             <button id="confirmBtn" onclick="handleConfirm(event)">Confirm</button>
         </div>
     </div>
 
+    <div id="editModal" class="edit">
+        <div class="modal-content">
+            <span class="close" onclick="handleEditClose(event)">&times;</span>
+            <div>
+                <label for="">Name: <input type="text" id="editName"></label>
+            </div>
+            <div>
+                <label for="">Time: <input type="text" id="editTime"></label>
+            </div>
+            <button id="confirmBtn" onclick="handleEditConfirm(event)">Confirm</button>
+        </div>
+    </div>
 
-    <script src="./js/script.js"></script>
+    <script src="../js/routine.js"></script>
 </body>
 
 </html>
