@@ -32,7 +32,7 @@
                 <input class="search" type="search" placeholder="search">
             </div>
             <div class="edit-container">
-                <button class="new-btn">
+                <button class="new-btn" onclick="handleNew(event)">
                     New
                 </button>
 
@@ -47,6 +47,7 @@
                 <table>
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>name</th>
                             <th>time</th>
                             <th>priority</th>
@@ -55,9 +56,12 @@
                     </thead>
                     <tbody>
                         <tr class="entry">
+                            <td>0</td>
                             <td>online meeting</td>
                             <td>2pm</td>
-                            <td class="droppable">put here</td>
+                            <td class="droppable">
+
+                            </td>
                             <td>
                                 <ul class="actions">
                                     <li>
@@ -65,11 +69,6 @@
                                             highlight
                                         </button>
                                     </li>
-                                    <!-- <li>
-                                        <button class="detail-btn">
-                                            detail
-                                        </button>
-                                    </li> -->
                                     <li>
                                         <button>
                                             edit
@@ -90,6 +89,31 @@
         </div>
     </div>
 
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="handleClose(event)">&times;</span>
+            <div>
+                <label for="">Name: <input type="text" id="name"></label>
+            </div>
+            <div>
+                <label for="">Time: <input type="text" id="time"></label>
+            </div>
+            <button id="confirmBtn" onclick="handleConfirm(event)">Confirm</button>
+        </div>
+    </div>
+
+    <div id="editModal" class="edit">
+        <div class="modal-content">
+            <span class="close" onclick="handleEditClose(event)">&times;</span>
+            <div>
+                <label for="">Name: <input type="text" id="editName"></label>
+            </div>
+            <div>
+                <label for="">Time: <input type="text" id="editTime"></label>
+            </div>
+            <button id="confirmBtn" onclick="handleEditConfirm(event)">Confirm</button>
+        </div>
+    </div>
 
     <script src="./js/script.js"></script>
 </body>

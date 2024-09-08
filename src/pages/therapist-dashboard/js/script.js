@@ -1,5 +1,135 @@
 // script.js
 
+
+
+const tbody = document.querySelector('tbody')
+
+let entries = localStorage.getItem('entries')
+
+if (entries !== null) {
+    entries = JSON.parse(entries)
+
+    entries.forEach((entry) => {
+        let row = document.createElement('tr')
+        row.className = 'entry'
+
+        entry.forEach((field, index) => {
+            if (index === entry.length - 1) {
+                if (field === true) {
+                    if (row.style.backgroundColor != 'pink') {
+                        row.style.backgroundColor = 'pink'
+
+                    }
+                    else {
+                        row.style.backgroundColor = ''
+                    }
+                }
+                return
+            }
+
+
+            let td = document.createElement('td')
+            if (index === 2) {
+                td.className = 'droppable'
+
+            }
+            td.innerHTML = field
+            row.appendChild(td)
+
+            if (index === entry.length - 2) {
+                let actionTd = document.createElement('td')
+                actionTd.innerHTML = `
+                <ul class="actions">
+                    <li>
+                        <button onclick="handleHighlight(event)" class="highlight-btn">
+                            highlight
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="handleDetail(event)" class="detail-btn">
+                            detail
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="handleEdit(event)">
+                            edit
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="handleDelete(event)">
+                            delete
+                        </button>
+                    </li>
+                </ul>`
+                row.appendChild(actionTd)
+                // console.log(row);
+            }
+
+        })
+
+        tbody.appendChild(row)
+
+    })
+
+}
+
+const handleEdit = (event) => {
+    modal.style.display = "block";
+    const btn = event.target
+    const row = btn.closest('.entry')
+    // console.log(row);
+
+    let id = row.children[0].innerHTML   
+    let name = row.children[1].innerHTML 
+    id = Number(id)
+    // console.log(id);
+    // console.log(name);
+
+    const modalID = document.querySelector('#ID')
+    // console.log(modalID);
+    modalID.innerHTML = id
+    const modalInput = modal.querySelector('input')
+    // console.log(modalInput);
+    modalInput.value = name
+
+
+
+
+}
+
+const handleConfirm = (event) => {
+    const btn = event.target
+    const name = modal.querySelector('input').value
+    let id = modal.querySelector('#ID').innerHTML
+    id = Number(id)
+    // console.log(id, name);
+    for(let i = 0; i < entries.length; i++){
+        let entry = entries[i]
+        // console.log(entry);
+        if(entry[0] === id){
+            entries[i][1] = name
+            localStorage.setItem('entries', JSON.stringify(entries))
+            modal.style.display = 'none'
+            break
+        }
+    }
+    window.location.reload()
+    
+}
+
+// Get the modal element
+const modal = document.getElementById("editModal");
+
+// Get the edit button that opens the modal
+const editBtn = document.querySelector(".edit-btn");
+
+// Get the <span> element that closes the modal
+const closeBtn = document.querySelector(".close");
+
+// Get the save button inside the modal
+const saveBtn = document.getElementById("saveBtn");
+
+
 const badges = document.querySelectorAll('.badges li');
 const droppableAreas = document.querySelectorAll('.droppable');
 
@@ -34,51 +164,201 @@ function createBadgeCopy(badgeText, container) {
     const badgeCopy = document.createElement('span');
     badgeCopy.textContent = badgeText;
     badgeCopy.className = 'badge';
-    // badgeCopy.style.padding = '5px 10px';
-    // badgeCopy.style.backgroundColor = '#007bff';
-    // badgeCopy.style.color = 'white';
-    // badgeCopy.style.borderRadius = '3px';
-    // badgeCopy.style.display = 'inline-block';
-    // badgeCopy.style.margin = '5px';
+    badgeCopy.onclick = (event) => {
+        const self = event.target
+        const droppable = self.closest('.droppable')
+        
+        self.remove()
+        if(droppable.children.length == 0){
+            droppable.innerHTML = '&nbsp;'
+        }
+    }
 
-    // Append the badge copy to the container
-    container.appendChild(badgeCopy);
+
+    const childrenElements = Array.from(container.children)
+
+    const hasDuplicate = childrenElements.some((item) => {
+        if (item.innerHTML == badgeText) {
+            return true
+        }
+    })
+    if (hasDuplicate) return
+
+    container.innerHTML = ''
+
+    childrenElements.push(badgeCopy)
+
+    const priority = {
+        'small': 1,
+        'middle': 2,
+        'severe': 3
+    };
+
+    const sortedChildren = childrenElements.sort((a, b) => {
+        const textA = a.innerHTML.trim();
+        const textB = b.innerHTML.trim();
+
+        const priorityA = priority[textA] || 0;
+        const priorityB = priority[textB] || 0;
+
+        return priorityA - priorityB;
+    });
+
+    const currentId = Number(container.closest('.entry').children[0].innerHTML)
+    // console.log(currentId);
+    let status = ''
+    sortedChildren.forEach((item) => {
+        container.appendChild(item)
+        status += item.outerHTML
+        // console.log(item.outerHTML);
+        // console.log(JSON.stringify(item));
+    })
+    // console.log(status);
+    for (let i = 0; i < entries.length; i++) {
+        if (entries[i][0] === currentId) {
+            entries[i][2] = status
+            console.log(entries[i]);
+        }
+    }
+    localStorage.setItem('entries', JSON.stringify(entries))
+
+
 }
 
-const highlightBtns = document.querySelectorAll('.highlight-btn')
-
-highlightBtns.forEach((highlightBtn) => {
-    highlightBtn.addEventListener('click', (event) => {
-        const row = highlightBtn.closest('.entry')
-        // console.log(row);
-        if (row.style.backgroundColor != 'pink') {
-            row.style.backgroundColor = 'pink'
-
+const handleHighlight = (event) => {
+    const highlightBtn = event.target
+    const row = highlightBtn.closest('.entry')
+    const currentId = Number(row.children[0].innerHTML)
+    if (row.style.backgroundColor != 'pink') {
+        row.style.backgroundColor = 'pink'
+        for (let i = 0; i < entries.length; i++) {
+            if (entries[i][0] === currentId) {
+                entries[i][entries[i].length - 1] = true
+            }
         }
-        else {
-            row.style.backgroundColor = ''
+    }
+    else {
+        row.style.backgroundColor = ''
+        for (let i = 0; i < entries.length; i++) {
+            if (entries[i][0] === currentId) {
+                entries[i][entries[i].length - 1] = false
+            }
         }
+    }
+    localStorage.setItem('entries', JSON.stringify(entries))
+
+
+}
+
+const handleDetail = (event) => {
+    const btn = event.target
+    const row = btn.closest('tr');
+
+    // 获取 ID 和名字（假设 ID 在第一个 <td>，名字在第二个 <td>）
+    const entryId = row.children[0].textContent.trim();
+    const entryName = row.children[1].textContent.trim();
+    const status = row.children[2]
+    const isHighlight = row.style.backgroundColor == 'pink'
+    console.log(isHighlight);
+    // console.log(status.children.length);
+
+    // console.log(status.children);
+    // if (status.children.length !== 0) {
+    //     for (let i = 0; i < status.children.length; i++) {
+    //         console.log(status.children[i].innerHTML);
+    //     }
+    // }
+
+
+    // 构建 URL，附加查询参数
+    const url = new URL('./detail/index.html', window.location.href);
+    url.searchParams.set('id', entryId);
+    url.searchParams.set('name', entryName);
+    if (status.children.length !== 0) {
+        for (let i = 0; i < status.children.length; i++) {
+            // console.log(status.children[i].innerHTML);
+            url.searchParams.set(status.children[i].innerHTML, true);
+        }
+    }
+    url.searchParams.set('isHighlight', isHighlight);
+
+
+    // 导航到新页面
+    window.location.href = url.toString();
+}
+
+const handleDelete = (event) => {
+    if(!confirm('are you sure?')){
+        return
+    }
+    const btn = event.target
+    const row = btn.closest('.entry')
+    const currentId = row.children[0].innerHTML
+    let entries = localStorage.getItem('entries')
+    entries = JSON.parse(entries)
+    entries = entries.filter((item, index) => {
+        return item[0] !== Number(currentId)
     })
+
+    localStorage.setItem('entries', JSON.stringify(entries))
+    window.location.reload()
+}
+
+
+const newBtn = document.querySelector('.new-btn')
+
+newBtn.addEventListener('click', () => {
+    handleNew()
 })
 
-const detailBtns = document.querySelectorAll('.detail-btn')
+const handleNew = () => {
+    let entries = localStorage.getItem('entries')
+    if (entries === null || entries === "[]") {
 
-detailBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // window.location.href = './detail/index.html'
-        // 获取按钮所在行的父元素 (tr)
-        const row = btn.closest('tr');
+        const info = [[0, 'smith', '&nbsp;', false]]
 
-        // 获取 ID 和名字（假设 ID 在第一个 <td>，名字在第二个 <td>）
-        const entryId = row.children[0].textContent.trim();
-        const entryName = row.children[1].textContent.trim();
+        localStorage.setItem('entries', JSON.stringify(info))
+        window.location.reload()
+        return
+    }
+    entries = JSON.parse(entries)
+    const lastIndex = entries.at(-1)[0]
+    console.log(lastIndex);
 
-        // 构建 URL，附加查询参数
-        const url = new URL('./detail/index.html', window.location.href);
-        url.searchParams.set('id', entryId);
-        url.searchParams.set('name', entryName);
+    const newRow = [lastIndex + 1, 'smith', '&nbsp;', false]
+    entries.push(newRow)
+    localStorage.setItem('entries', JSON.stringify(entries))
 
-        // 导航到新页面
-        window.location.href = url.toString();
-    })
-})
+    window.location.reload()
+
+}
+
+
+// popup
+
+
+
+// When the user clicks the edit button, open the modal
+editBtn.onclick = function () {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+closeBtn.onclick = function () {
+    modal.style.display = "none";
+}
+
+// When the user clicks the save button, save the data and close the modal
+saveBtn.onclick = function () {
+    const editedValue = document.getElementById("editInput").value;
+    console.log("New value:", editedValue); // Do something with the new value
+    modal.style.display = "none"; // Close modal after saving
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
