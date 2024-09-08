@@ -176,17 +176,17 @@ if (routines !== null) {
             if (index === 4) {
                 td.innerHTML = `<ul class="actions">
                                     <li>
-                                        <button onclick="handleHighlight(event)">
+                                        <button onclick="handleHighlight(event)" class="btn btn-info">
                                             highlight
                                         </button>
                                     </li>
                                     <li>
-                                        <button onclick="handleEdit(event)">
+                                        <button onclick="handleEdit(event)" class="btn btn-primary">
                                             edit
                                         </button>
                                     </li>
                                     <li>
-                                        <button onclick="handleDelete(event)">
+                                        <button onclick="handleDelete(event)" class="btn btn-danger">
                                             delete
                                         </button>
                                     </li>

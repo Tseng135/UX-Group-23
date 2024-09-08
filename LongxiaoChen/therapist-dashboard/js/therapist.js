@@ -41,22 +41,22 @@ if (entries !== null) {
                 actionTd.innerHTML = `
                 <ul class="actions">
                     <li>
-                        <button onclick="handleHighlight(event)" class="highlight-btn">
+                        <button onclick="handleHighlight(event)" class="btn btn-info">
                             highlight
                         </button>
                     </li>
                     <li>
-                        <button onclick="handleDetail(event)" class="detail-btn">
+                        <button onclick="handleDetail(event)" class="btn btn-secondary">
                             detail
                         </button>
                     </li>
                     <li>
-                        <button onclick="handleEdit(event)">
+                        <button onclick="handleEdit(event)" class="btn btn-primary edit-btn">
                             edit
                         </button>
                     </li>
                     <li>
-                        <button onclick="handleDelete(event)">
+                        <button onclick="handleDelete(event)" class="btn btn-danger">
                             delete
                         </button>
                     </li>
@@ -127,7 +127,6 @@ const editBtn = document.querySelector(".edit-btn");
 const closeBtn = document.querySelector(".close");
 
 // Get the save button inside the modal
-const saveBtn = document.getElementById("saveBtn");
 
 
 const badges = document.querySelectorAll('.badges li');
@@ -348,12 +347,7 @@ closeBtn.onclick = function () {
     modal.style.display = "none";
 }
 
-// When the user clicks the save button, save the data and close the modal
-saveBtn.onclick = function () {
-    const editedValue = document.getElementById("editInput").value;
-    console.log("New value:", editedValue); // Do something with the new value
-    modal.style.display = "none"; // Close modal after saving
-}
+
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
