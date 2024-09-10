@@ -1,10 +1,31 @@
+<<<<<<< Updated upstream
+=======
+/*!
+  * Bootstrap v5.3.3 (https://getbootstrap.com/)
+  * Copyright 2011-2024 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+  */
+>>>>>>> Stashed changes
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.bootstrap = factory());
 })(this, (function () { 'use strict';
 
+<<<<<<< Updated upstream
 
+=======
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap dom/data.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+
+  /**
+   * Constants
+   */
+>>>>>>> Stashed changes
 
   const elementMap = new Map();
   const Data = {
@@ -43,7 +64,16 @@
     }
   };
 
+<<<<<<< Updated upstream
 
+=======
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap util/index.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+>>>>>>> Stashed changes
 
   const MAX_UID = 1000000;
   const MILLISECONDS_MULTIPLIER = 1000;
@@ -4192,6 +4222,15 @@
     }
   }
 
+<<<<<<< Updated upstream
+=======
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap modal.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+>>>>>>> Stashed changes
 
 
   /**
@@ -4491,6 +4530,16 @@
 
   defineJQueryPlugin(Modal);
 
+<<<<<<< Updated upstream
+=======
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap offcanvas.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+
+>>>>>>> Stashed changes
 
   /**
    * Constants
@@ -4715,6 +4764,15 @@
 
   defineJQueryPlugin(Offcanvas);
 
+<<<<<<< Updated upstream
+=======
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap util/sanitizer.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+>>>>>>> Stashed changes
 
   // js-docs-start allow-list
   const ARIA_ATTRIBUTE_PATTERN = /^aria-[\w-]*$/i;
@@ -4805,7 +4863,16 @@
     return createdDocument.body.innerHTML;
   }
 
+<<<<<<< Updated upstream
 
+=======
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap util/template-factory.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+>>>>>>> Stashed changes
 
 
   /**
@@ -4936,6 +5003,15 @@
     }
   }
 
+<<<<<<< Updated upstream
+=======
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap tooltip.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+>>>>>>> Stashed changes
 
 
   /**
@@ -5442,7 +5518,16 @@
 
   defineJQueryPlugin(Tooltip);
 
+<<<<<<< Updated upstream
 
+=======
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap popover.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+>>>>>>> Stashed changes
 
 
   /**
@@ -5518,7 +5603,16 @@
 
   defineJQueryPlugin(Popover);
 
+<<<<<<< Updated upstream
 
+=======
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap scrollspy.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+>>>>>>> Stashed changes
 
 
   /**
