@@ -1,13 +1,4 @@
-@charset "UTF-8";
-<<<<<<< Updated upstream
-=======
-/*!
- * Bootstrap  v5.3.3 (https://getbootstrap.com/)
- * Copyright 2011-2024 The Bootstrap Authors
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
->>>>>>> Stashed changes
-:root,
+@charset "UTF-8";:root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -491,6 +482,12 @@ button,
 [type=reset],
 [type=submit] {
   -webkit-appearance: button;
+  appearance: button;
+  appearance: button;
+  appearance: button;
+  appearance: button;
+  appearance: button;
+  appearance: button;
 }
 button:not(:disabled),
 [type=button]:not(:disabled),
@@ -548,6 +545,7 @@ legend + * {
 
 [type=search] {
   -webkit-appearance: textfield;
+  appearance: textfield;
   outline-offset: -2px;
 }
 
@@ -2410,7 +2408,7 @@ textarea.form-control-lg {
   background-size: contain;
   border: var(--bs-border-width) solid var(--bs-border-color);
   -webkit-print-color-adjust: exact;
-  color-adjust: exact;
+
   print-color-adjust: exact;
 }
 .form-check-input[type=checkbox] {
@@ -12055,10 +12053,4 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
-<<<<<<< Updated upstream
 }
-=======
-}
-
-/*# sourceMappingURL=bootstrap.css.map */
->>>>>>> Stashed changes
