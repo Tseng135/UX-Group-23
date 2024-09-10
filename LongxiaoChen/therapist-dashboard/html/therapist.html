@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>therapist dashboard</title>
+    <link rel="stylesheet" href="../css/therapist.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="../img/CaRe Logo.png" alt="Logo" style="height: 60px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Patient Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Therapist Dashboard</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Professional Links
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Auditor Interface</a></li>
+                            <li><a class="dropdown-item" href="#">Administrative Interface</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Settings & Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Personal Settings</a>
+                    </li>
+                </ul>
+
+                <!-- 登录按钮 -->
+                <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="avatar" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                    <path fill-rule="evenodd"
+                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <nav>
+        <ul class="menu">
+            <li><a href="therapist.html">Patient List</a></li>
+            <li><a href="./routine.html">Daily Routine</a></li>
+        </ul>
+    </nav>
+
+    <div class="panel">
+        <div class="container">
+            <!-- <div class="search-container">
+                <input class="search" type="search" placeholder="search">
+            </div> -->
+            <div class="edit-container">
+                <button class="btn btn-outline-success new-btn">
+                    New
+                </button>
+
+                <ul class="badges">
+                    <li class="badge" draggable="true">small</li>
+                    <li class="badge" draggable="true">middle</li>
+                    <li class="badge" draggable="true">severe</li>
+                </ul>
+
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>patient id</th>
+                            <th>name</th>
+                            <th>status</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr class="entry">
+                            <td>0</td>
+                            <td>smith</td>
+                            <td class="droppable">
+                                &nbsp;
+                            </td>
+                            <td>
+                                <ul class="actions">
+                                    <li>
+                                        <button onclick="handleHighlight(event)" class="highlight-btn">
+                                            highlight
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button class="detail-btn">
+                                            detail
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button>
+                                            edit
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button>
+                                            delete
+                                        </button>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr> -->
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div>
+        <button class="edit-btn">
+            Edit
+        </button>
+    </div> -->
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Edit Information</h3>
+            ID:
+            <span id="ID"></span>
+            <br>
+            <label for="">
+                Name:
+                <input type="text">
+            </label>
+            <button class="btn btn-primary" id="confirmBtn" onclick="handleConfirm(event)">Confirm</button>
+        </div>
+    </div>
+
+
+    <script src="../js/therapist.js"></script>
+</body>
+
+</html>
