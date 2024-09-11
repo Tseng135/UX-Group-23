@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - CaRe App</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="settings-container">
+        
+        <aside class="sidebar">
+            <h2>Settings</h2>
+            <ul>
+                <li><a href="#account-settings">Account Settings</a></li>
+                <li><a href="#security-settings">Security Settings</a></li>
+                <li><a href="#notification-settings">Notification Settings</a></li>
+                <li><a href="#language-preferences">Language Preferences</a></li>
+                <li><a href="#theme-settings">Theme Settings</a></li>
+                <li><a href="#privacy-settings">Privacy Settings</a></li>
+                <li><a href="#feedback">Feedback & Suggestion</a></li>
+                <li><a href="#data-management">Data Management</a></li>
+            </ul>
+        </aside>
+
+        
+        <main class="settings-content">
+            <!-- Account Settings -->
+            <section id="account-settings" class="settings-section">
+                <h3>Account Settings</h3>
+                <div class="settings-card">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" placeholder="Enter your username">
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" placeholder="Enter your phone number">
+
+                    <button id="save-account-settings">Save</button>
+                </div>
+            </section>
+
+            <!-- Security Settings -->
+            <section id="security-settings" class="settings-section">
+                <h3>Security Settings</h3>
+                <div class="settings-card">
+                    <button>Change Password</button>
+                </div>
+            </section>
+
+            <!-- Notification Settings -->
+            <section id="notification-settings" class="settings-section">
+                <h3>Notification Settings</h3>
+                <div class="settings-card">
+                    <label>
+                        <input type="checkbox" id="email-notifications"> Email Notifications
+                    </label>
+                    <label>
+                        <input type="checkbox" id="sms-notifications"> SMS Notifications
+                    </label>
+                </div>
+            </section>
+
+            <!-- Language Preferences -->
+            <section id="language-preferences" class="settings-section">
+                <h3>Language Preferences</h3>
+                <div class="settings-card">
+                    <label for="language">Select Language:</label>
+                    <select id="language">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Theme Settings -->
+            <section id="theme-settings" class="settings-section">
+                <h3>Theme Settings</h3>
+                <div class="settings-card">
+                    <label>
+                        <input type="radio" name="theme" value="light"> Light Mode
+                    </label>
+                    <label>
+                        <input type="radio" name="theme" value="dark"> Dark Mode
+                    </label>
+                </div>
+            </section>
+
+            <!-- Privacy Settings -->
+            <section id="privacy-settings" class="settings-section">
+                <h3>Privacy Settings</h3>
+                <div class="settings-card">
+                    <button>Export Data</button>
+                    <button>Delete Account</button>
+                </div>
+            </section>
+
+            <!-- Feedback & Suggestion -->
+            <section id="feedback" class="settings-section">
+                <h3>Feedback & Suggestion</h3>
+                <div class="settings-card">
+                    <label for="feedback-text">Your Feedback:</label>
+                    <textarea id="feedback-text" rows="4" placeholder="Write your feedback here..."></textarea>
+
+                    <label for="feedback-photo">Upload a Photo:</label>
+                    <input type="file" id="feedback-photo" accept="image/*">
+
+                    <button id="submit-feedback">Submit Feedback</button>
+                </div>
+            </section>
+
+            <!-- Data Management -->
+            <section id="data-management" class="settings-section">
+                <h3>Data Management</h3>
+                <div class="settings-card">
+                    <button>Clear Cache</button>
+                    <button>Reset Settings</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/settings.js"></script>
+</body>
+</html>
+
