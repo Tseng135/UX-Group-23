@@ -7,6 +7,7 @@
   <title>Home Page</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
   <style>
     .full-screen-section {
       height: 100vh;
@@ -21,12 +22,35 @@
       position: relative;
       text-align: center;
     }
+
+    .top-info-bar {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 0;
+    }
   </style>
 </head>
 
 <body class="background-color">
+  <!-- Top Info Bar -->
+  <div class="top-info-bar text-center">
+    <div class="container d-flex justify-content-between">
+      <div>
+        <i class="bi bi-envelope"></i> support@example.com &nbsp;|&nbsp;
+        <i class="bi bi-telephone"></i> +123 456 7890 &nbsp;|&nbsp;
+        <i class="bi bi-geo-alt"></i> 1245 Japan, Your Location
+      </div>
+      <div>
+        <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="text-white me-2"><i class="bi bi-google"></i></a>
+        <a href="#" class="text-white me-2"><i class="bi bi-youtube"></i></a>
+        <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
   <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="../img/CaRe Logo.png" alt="Logo" style="height: 60px;">
@@ -38,44 +62,36 @@
       <div class="collapse navbar-collapse" id="navbarScroll">
         <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#patient-dashboard">Patient Dashboard</a>
+            <a class="nav-link active" aria-current="page" href="#Home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#therapist-dashboard">Therapist Dashboard</a>
+            <a class="nav-link" href="#About">About</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Professional Links
+              Pages
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#auditor-interface">Auditor Interface</a></li>
-              <li><a class="dropdown-item" href="#admin-interface">Administrative Interface</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="#patient-dashboard">Patient Dashboard</a></li>
+              <li><a class="dropdown-item" href="#therapist-dashboard">Therapist Dashboard</a></li>
+              <li><a class="dropdown-item" href="#admin-interface">Admin Dashboard</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#settings">Settings & Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#personal-settings">Personal Settings</a>
+            <a class="nav-link" href="#settings">Contact Us & Settings</a>
           </li>
         </ul>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-        <!-- Login Button -->
-        <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal"
-          data-bs-target="#loginModal">Login</button>
+        <button class="btn btn-outline-primary ms-3" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</button>
       </div>
     </div>
   </nav>
 
   <!-- Full Screen Sections -->
-  <div id="patient-dashboard" class="full-screen-section" style="background: url('../img/slide1.webp') center/cover no-repeat;">
+  <div id="Home" class="full-screen-section" style="background: url('../img/slide1.webp') center/cover no-repeat;">
     <div class="content-wrapper">
       <h2>Unlock Your Body Potential With Physiolife</h2>
       <p>We care for the growing needs of our community. We build systems for providing health services for individuals, families, and communities in general.</p>
@@ -86,7 +102,7 @@
     </div>
   </div>
 
-  <div id="therapist-dashboard" class="full-screen-section bg-secondary text-white">
+  <div id="About" class="full-screen-section bg-secondary text-white">
     <div class="container">
       <h2>Therapist Dashboard</h2>
       <p>This section allows therapists to manage patient records and groups.</p>
