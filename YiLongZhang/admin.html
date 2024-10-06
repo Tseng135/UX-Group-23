@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Management System</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="js/admin.js" defer></script>
+    <link href='./css/funll.css' rel='stylesheet'/>
+    <script src='./js/funnl.js'></script>
+    <script src="./js/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">LOGO</div>
+            <div class="user-info">
+                <img src="./images/1.jpg" alt="Avatar" class="avatar">
+                <div class="user-info">
+                    <div class="user-dropdown" id="userDropdown">
+                        <span>Admin</span>
+                        <div class="dropdown-content">
+                            <a href="#">Logout</a>
+                            <a href="#">Settings</a>
+                            <a href="#">Manage Account</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="main">
+            <aside class="sidebar">
+                <ul>
+                    <li onclick="showModule('patientManagement')">Patient Management</li>
+                    <li onclick="showModule('appointmentModule')">Schedule</li>
+                </ul>
+            </aside>
+            <main class="content">
+                <div id="patientManagement" class="module active">
+                    <h2>Patient Management</h2>
+                    <div class="controls">
+                        <input type="text" id="search" placeholder="Search Patients" oninput="searchPatients()">
+
+                        <label for="genderFilter">Gender:</label>
+                        <select id="genderFilter" onchange="searchPatients()">
+                            <option value="">All</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+
+                        <label for="ageMin">Age Range:</label>
+                        <input type="number" id="ageMin" placeholder="Minimum Age" oninput="searchPatients()">
+                        <input type="number" id="ageMax" placeholder="Maximum Age" oninput="searchPatients()">
+
+                        <button class="btn" onclick="openPatientForm()">Add New Patient</button>
+                    </div>
+                    <table id="patientTable" class="styled-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Contact</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <div class="pagination">
+                        <button id="prevPage" class="btn" onclick="changePage(-1)">Previous Page</button>
+                        <span id="pageInfo">Page <span id="currentPage">1</span></span>
+                        <button id="nextPage" class="btn" onclick="changePage(1)">Next Page</button>
+                    </div>
+                </div>
+                <div id="addPatientModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeAddPatientForm('addPatientModal')">&times;</span>
+                        <h2 id="modalTitle">Add New Patient</h2>
+                        <input type="hidden" id="patientId">
+
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="age">Age:</label>
+                            <input type="number" id="age" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gender">Gender:</label>
+                            <select id="gender" required>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact">Contact:</label>
+                            <input type="text" id="contact" required>
+                        </div>
+
+                        <button class="btn" onclick="submitPatientForm('addPatientModal')">Confirm</button>
+                        <button class="btn cancel" onclick="closeAddPatientForm('addPatientModal')">Cancel</button>
+                    </div>
+                </div>
+                <div id="appointmentModule" class="module">
+                    <button class="btn" onclick="openPatientForm('appointmentModal')">Add Appointment</button>
+                    <button class="btn" onclick="openPatientForm('reportModal')">Statistics Report</button>
+                    <div id="schedule">
+                        <h3>Schedule</h3>
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+
+                <!-- Appointment Modal -->
+                <div id="appointmentModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeAddPatientForm('appointmentModal')">&times;</span>
+                        <h2 id="modalTitle2">Add Appointment</h2>
+                        <form id="appointmentForm">
+                            <div class="form-group">
+                                <label for="patientName">Patient Name:</label>
+                                <input type="text" id="patientName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="therapist">Therapist:</label>
+                                <select id="therapist" required>
+                                    <option value="">Select Therapist</option>
+                                    <!-- 这里的选项将由JavaScript动态生成 -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentStartDate">Appointment Start Time:</label>
+                                <input type="datetime-local" id="appointmentStartDate" required>
+                                <small>Please select a start date and time for the appointment.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentEndDate">Appointment End Time:</label>
+                                <input type="datetime-local" id="appointmentEndDate" required>
+                                <small>Please select an end date and time for the appointment.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="treatmentRoom">Treatment Room:</label>
+                                <select id="treatmentRoom" required>
+                                    <option value="">Select Treatment Room</option>
+                                    <!-- 这里的选项将由JavaScript动态生成 -->
+                                </select>
+                            </div>
+
+                            <button type="button" class="btn" id="submitBtn" onclick="submitAppointmentForm()">Confirm Add</button>
+                            <button type="button" class="btn cancel" onclick="closeAddPatientForm('appointmentModal')">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+
+
+                <!-- Statistics Report Modal -->
+                <div id="reportModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeAddPatientForm('reportModal')">&times;</span>
+                        <h2>Statistics Report</h2>
+                        <div id="patientReport">
+                            <h3>Patient Statistics Report</h3>
+                            <canvas id="patientChart"></canvas>
+                        </div>
+                        <div id="appointmentReport">
+                            <h3>Appointment Statistics Report</h3>
+                            <canvas id="appointmentChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+<script>
+    window.onclick = function(event) {
+        const modal = document.getElementById('addPatientModal');
+        if (event.target == modal) {
+            closeAddPatientForm();
+        }
+    }
+</script>
+</body>
+</html>
