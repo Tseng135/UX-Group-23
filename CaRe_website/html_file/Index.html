@@ -37,6 +37,9 @@
     .card img {
     height: 50px;
     }
+    .card-title, .card-text {
+    color: black !important;
+}
 
   </style>
 </head>
@@ -121,89 +124,103 @@
   </div>
 
 <!-- Team Section -->
-<!-- Full Screen Team Section -->
-<div id="team" class="full-screen-section" style="background: #007bff">
-    <div id="team-carousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="container">
-            <div class="text-center mb-5">
-              <h2>Our Best Team</h2>
-              <p>Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry.</p>
-            </div>
-            <div class="row text-center">
-              <!-- Team Member 1 -->
-              <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow-sm">
-                  <img src="../img/therapist profile.png" alt="Luis Dias" class="card-img-top img-fluid">
-                  <div class="card-body">
-                    <h5 class="card-title">Luis Dias</h5>
-                    <p class="card-text">Lorem Ipsum Dolor ...</p>
-                  </div>
-                </div>
-              </div>
-              <!-- Team Member 2 -->
-              <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow-sm">
-                  <img src="../img/team2.png" alt="Alberto Moreno" class="card-img-top img-fluid">
-                  <div class="card-body">
-                    <h5 class="card-title">Alberto Moreno</h5>
-                    <p class="card-text">Lorem Ipsum Dolor ...</p>
-                  </div>
-                </div>
-              </div>
-              <!-- Team Member 3 -->
-              <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow-sm">
-                  <img src="../img/team3.png" alt="John Seth" class="card-img-top img-fluid">
-                  <div class="card-body">
-                    <h5 class="card-title">John Seth</h5>
-                    <p class="card-text">Lorem Ipsum Dolor ...</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="container">
-            <div class="row text-center">
-              <!-- Team Member 4 -->
-              <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow-sm">
-                  <img src="../img/team4.png" alt="Emily Rose" class="card-img-top img-fluid">
-                  <div class="card-body">
-                    <h5 class="card-title">Emily Rose</h5>
-                    <p class="card-text">Lorem Ipsum Dolor ...</p>
-                  </div>
-                </div>
-              </div>
-              <!-- Team Member 5 -->
-              <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow-sm">
-                  <img src="../img/team5.png" alt="Michael Smith" class="card-img-top img-fluid">
-                  <div class="card-body">
-                    <h5 class="card-title">Michael Smith</h5>
-                    <p class="card-text">Lorem Ipsum Dolor ...</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Carousel Controls -->
-      <button class="carousel-control-prev btn btn-dark" type="button" data-bs-target="#team-carousel" data-bs-slide="prev" style="display: block;">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next btn btn-dark" type="button" data-bs-target="#team-carousel" data-bs-slide="next" style="display: block;">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+<div id="Team" class="full-screen-section" style="background-color: #f8f9fa; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0; margin: 0;">
+    <div class="text-center" style="padding: 0; margin: 0; text-align: center;">
+        <img src="../img/Team_icon.png" alt="Team Icon" class="img-fluid mb-3" style="width: 100px; height: auto;"> 
+        <h2 class="section-title" style="font-weight: bold; margin: 0; color: black;">Our Best Team</h2>
+        <p class="section-subtitle" style="margin: 0; color: black;">Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry.</p>
     </div>
+ 
+    <!-- Carousel -->
+    <div id="team-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container">
+              <div class="row text-center">
+                <!-- Team Member 1 -->
+                <div class="col-md-4 mb-4">
+                  <div class="card h-100 shadow-sm">
+      <img src="../img/therapist profile.png" alt="Luis Dias" class="card-img-top img-fluid" style="height: 450px; object-fit: cover;">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Dr John Smith</h5>
+                      <p class="card-text">a PhD graduate from Flinders University, specializes in personalized mental health care with a compassionate and patient-centered approach.</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="col-md-4 mb-4">
+                  <div class="card h-100 shadow-sm">
+      <img src="../img/team2.png" alt="Alberto Moreno" class="card-img-top img-fluid" style="height: 450px; object-fit: cover;">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Alberto Moreno</h5>
+                      <p class="card-text">Lorem Ipsum Dolor ...</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Team Member 3 -->
+                <div class="col-md-4 mb-4">
+                  <div class="card h-100 shadow-sm">
+      <img src="../img/team3.png" alt="John Seth" class="card-img-top img-fluid" style="height: 450px; object-fit: cover;">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">John Seth</h5>
+                      <p class="card-text">Lorem Ipsum Dolor ...</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row text-center">
+                <!-- Team Member 4 -->
+                <div class="col-md-4 mb-4">
+                  <div class="card h-100 shadow-sm">
+      <img src="../img/team4.png" alt="Emily Rose" class="card-img-top img-fluid" style="height: 450px; object-fit: cover;">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Emily Rose</h5>
+                      <p class="card-text">Lorem Ipsum Dolor ...</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Team Member 5 -->
+                <div class="col-md-4 mb-4">
+                  <div class="card h-100 shadow-sm">
+      <img src="../img/team5.png" alt="Michael Smith" class="card-img-top img-fluid" style="height: 450px; object-fit: cover;">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Michael Smith</h5>
+                      <p class="card-text">Lorem Ipsum Dolor ...</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Team Member 6 -->
+                <div class="col-md-4 mb-4">
+                  <div class="card h-100 shadow-sm">
+      <img src="../img/team6.png" alt="John Doe" class="card-img-top img-fluid" style="height: 450px; object-fit: cover;">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">John Doe</h5>
+                      <p class="card-text">Lorem Ipsum Dolor ...</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  
+    <!-- Carousel Controls -->
+    <button class="carousel-control-prev btn btn-dark" type="button" data-bs-target="#team-carousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next btn btn-dark" type="button" data-bs-target="#team-carousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
+  
   
 
   <!-- Login Modal -->
@@ -275,6 +292,7 @@
   <div id="footer-placeholder"></div>
 
   <script src = "../js/include.js "></script>
+  <script src = "..//js/carousel.js "></script>
 
 </body>
 
