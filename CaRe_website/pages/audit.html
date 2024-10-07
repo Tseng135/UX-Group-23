@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Management System</title>
+    <link rel="stylesheet" href="../css/audit.css">
+    <script src="../js/audit.js" defer></script>
+    <link href='../css/funll.css' rel='stylesheet'/>
+    <script src='../js/funnl.js'></script>
+    <script src="../js/chart.js"></script>
+    <style>
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            top: 100%;
+            left: -20%;
+            transform: translateX(-50%);
+        }
+        .user-dropdown.active .dropdown-content {
+            display: block;
+        }
+        .user-dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .user-dropdown {
+            position: relative;
+        }
+        .module {
+            display: none; /* 默认隐藏所有模块 */
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            showModule('workloadAnalysisContent'); // 加载时显示工作负载分析
+        };
+    </script>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <div class="logo">LOGO</div>
+        <div class="user-info">
+            <div class="user-dropdown" id="userDropdown">
+                <span>Admin</span>
+                <div class="dropdown-content">
+                    <a href="#">Logout</a>
+                    <a href="#">Settings</a>
+                    <a href="#">Manage Account</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="main">
+        <aside class="sidebar">
+            <ul>
+                <li onclick="showModule('workloadAnalysisContent')">Therapist Workload Analysis</li>
+                <li onclick="showModule('patientStatisticsContent')">Patient Count Statistics</li>
+                <li onclick="showModule('sessionDurationStatisticsContent')">Session Duration Statistics</li>
+            </ul>
+        </aside>
+        <main class="content">
+            <div id="workloadAnalysisContent" class="module">
+                <h2>Therapist Workload Analysis</h2>
+                <canvas id="workloadChart" width="400" height="200"></canvas>
+            </div>
+            <div id="patientStatisticsContent" class="module">
+                <h2>Patient Count Statistics</h2>
+                <canvas id="patientCountChart" width="400" height="200"></canvas>
+            </div>
+            <div id="sessionDurationStatisticsContent" class="module">
+                <h2>Session Duration Statistics</h2>
+                <canvas id="sessionDurationChart" width="400" height="200"></canvas>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>
