@@ -104,19 +104,24 @@ if ($action == 'get_appointments') {
 }
 
 // 获取睡眠习惯记录
+header('Content-Type: application/json');  // 确保输出为 JSON 格式
 if ($action == 'get_sleep_data') {
-    $sql = "SELECT sleep_hours, date FROM sleep_habits WHERE patient_id = 1";  // patient_id 可以从POST或GET请求中动态获取
+    $sql = "SELECT sleep_hours, date FROM sleep_habits WHERE patient_id = 1";
     $result = $conn->query($sql);
     $sleep_data = [];
 
-    while ($row = $result->fetch_assoc()) {
-        $sleep_data[] = $row;
+    if ($result) {
+        while ($row = $result->fetch_assoc()) {
+            $sleep_data[] = $row;
+        }
+        echo json_encode(['success' => true, 'sleep_data' => $sleep_data]);
+    } else {
+        echo json_encode(['success' => false, 'error' => 'Error fetching sleep data']);
     }
-
-    echo json_encode(['success' => true, 'sleep_data' => $sleep_data]);
 }
 
 // 获取饮食习惯记录
+header('Content-Type: application/json');  // 确保输出为 JSON 格式
 if ($action == 'get_diet_data') {
     $sql = "SELECT meals_per_day, healthy_meals, date FROM diet_habits WHERE patient_id = 1";  // patient_id 可以从POST或GET请求中动态获取
     $result = $conn->query($sql);
