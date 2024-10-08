@@ -71,17 +71,21 @@ if ($action == 'delete_health_record') {
 }
 
 // 添加预约记录
-if ($action == 'book_appointment') {
-    $appointmentType = $_POST['type'];
-    $appointmentDate = $_POST['date'];
-    $appointmentTime = $_POST['time'];
+if ($_POST['action'] == 'book_appointment') {
+    $type = $_POST['type'];
+    $date = $_POST['date'];
+    $time = $_POST['time'];
 
-    $sql = "INSERT INTO appointments (type, date, time) VALUES ('$appointmentType', '$appointmentDate', '$appointmentTime')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo json_encode(['success' => true]);
+    // 检查数据是否为空
+    if (!empty($type) && !empty($date) && !empty($time)) {
+        $sql = "INSERT INTO appointments (type, date, time) VALUES ('$type', '$date', '$time')";
+        if ($conn->query($sql) === TRUE) {
+            echo json_encode(['success' => true]);
+        } else {
+            echo json_encode(['success' => false, 'error' => $conn->error]);
+        }
     } else {
-        echo json_encode(['success' => false, 'error' => $conn->error]);
+        echo json_encode(['success' => false, 'error' => 'All fields are required.']);
     }
 }
 
@@ -95,7 +99,34 @@ if ($action == 'get_appointments') {
         $appointments[] = $row;
     }
 
+    // 调试信息：查看输出的 JSON
     echo json_encode(['appointments' => $appointments]);
+}
+
+// 获取睡眠习惯记录
+if ($action == 'get_sleep_data') {
+    $sql = "SELECT sleep_hours, date FROM sleep_habits WHERE patient_id = 1";  // patient_id 可以从POST或GET请求中动态获取
+    $result = $conn->query($sql);
+    $sleep_data = [];
+
+    while ($row = $result->fetch_assoc()) {
+        $sleep_data[] = $row;
+    }
+
+    echo json_encode(['success' => true, 'sleep_data' => $sleep_data]);
+}
+
+// 获取饮食习惯记录
+if ($action == 'get_diet_data') {
+    $sql = "SELECT meals_per_day, healthy_meals, date FROM diet_habits WHERE patient_id = 1";  // patient_id 可以从POST或GET请求中动态获取
+    $result = $conn->query($sql);
+    $diet_data = [];
+
+    while ($row = $result->fetch_assoc()) {
+        $diet_data[] = $row;
+    }
+
+    echo json_encode(['success' => true, 'diet_data' => $diet_data]);
 }
 
 // 关闭数据库连接

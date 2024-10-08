@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/chart.js"></script>
     <style>
         /* Left Sidebar Styling */
         .sidebar {
@@ -118,13 +119,16 @@
             <!-- Mood Selection Feature -->
             <h3>How are you feeling today?</h3>
             <div class="mood-selection">
-                <button>Happy</button>
-                <button>Sad</button>
-                <button>Stressed</button>
-                <button>Anxious</button>
-                <button>Excited</button>
-                <button>Calm</button>
+                <button onclick="showMoodMessage('Happy')">Happy</button>
+                <button onclick="showMoodMessage('Sad')">Sad</button>
+                <button onclick="showMoodMessage('Stressed')">Stressed</button>
+                <button onclick="showMoodMessage('Anxious')">Anxious</button>
+                <button onclick="showMoodMessage('Excited')">Excited</button>
+                <button onclick="showMoodMessage('Calm')">Calm</button>
             </div>
+        
+            <!-- Mood message display area -->
+            <div id="mood-message" style="margin-top: 20px; font-size: 18px; font-weight: bold; align-items: center;"></div>
         </div>
 
         <!-- View Health Records Module -->
@@ -168,31 +172,35 @@
                         <label for="appointmentTime" class="form-label">Time</label>
                         <input type="time" class="form-control" id="appointmentTime">
                     </div>
-                    <button type="submit" class="btn btn-primary">Book Appointment</button>
+                    <button type="submit" class="btn btn-primary" onclick="bookAppointment(event)">Book Appointment</button>
                 </form>
             </div>
 
             <!-- Appointment History -->
             <h2 class="mt-5">Appointment History</h2>
-            <div class="list-group">
+            <!-- <div class="list-group">
                 <a href="#" class="list-group-item list-group-item-action">Appointment #1: General Checkup - 2023-09-20 at 10:00</a>
                 <a href="#" class="list-group-item list-group-item-action">Appointment #2: Mental Status Examination - 2023-09-22 at 15:00</a>
                 <a href="#" class="list-group-item list-group-item-action">Appointment #3: Physical Specialized Examination - 2023-09-25 at 09:00</a>
+            </div> -->
+            <div class="list-group" id="appointmentHistory">
+                <!-- 预约历史将在这里显示 -->
             </div>
+            
         </div>
 
-        <!-- View Sleep Habits Module -->
-        <div id="sleepHabits" class="module">
-            <h2>View Sleep Habits</h2>
-            <p>Placeholder for sleep habits chart (will be linked to the database).</p>
-        </div>
+<!-- View Sleep Habits Module -->
+<div id="sleepHabits" class="module">
+    <h2>View Sleep Habits</h2>
+    <canvas id="sleepChart" width="400" height="200"></canvas>  <!-- 添加canvas用于显示图表 -->
+</div>
 
-        <!-- View Diet Habits Module -->
-        <div id="dietHabits" class="module">
-            <h2>View Diet Habits</h2>
-            <p>Placeholder for diet habits chart (will be linked to the database).</p>
-        </div>
-    </div>
+<!-- View Diet Habits Module -->
+<div id="dietHabits" class="module">
+    <h2>View Diet Habits</h2>
+    <canvas id="dietChart" width="400" height="200"></canvas>  <!-- 添加canvas用于显示图表 -->
+</div>
+
 
     <!-- JavaScript for Module Switching -->
     <script>
