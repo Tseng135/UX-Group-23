@@ -78,8 +78,9 @@
   <div class="main">
     <aside class="sidebar">
       <ul>
-        <li>Patient Management</li>
-        <li>Schedule</li>
+        <a href="./therapist-patients.php">
+          <li>Patient Management</li>
+        </a>
       </ul>
     </aside>
     <div class="card bg-light w-100 m-5 rounded-10">
@@ -310,7 +311,7 @@
   </div>
 
   <script>
-    async function handleSubmitNew(){
+    async function handleSubmitNew() {
       const form = document.getElementById('newPatientForm')
       const formData = new FormData(form); // 获取表单数据
 

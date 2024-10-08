@@ -120,7 +120,6 @@
           <a href="./therapist-patients.php">
             <li>Patient Management</li>
           </a>
-          <li>Schedule</li>
         </ul>
       </aside>
       <div class="card bg-light w-100 m-5 rounded-10">
