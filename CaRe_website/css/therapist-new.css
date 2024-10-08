@@ -1,0 +1,480 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.therapist-container {
+    display: flex;
+    flex-direction: column;
+    /* height: 100vh; */
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.main {
+    display: flex;
+    flex-grow: 1;
+}
+
+.sidebar {
+    width: 200px;
+    /* min-height: 600px; */
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    cursor: pointer;
+    padding: 12px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li:hover {
+    background-color: #ddd;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    overflow-y: auto;
+}
+
+.module {
+    display: none;
+}
+
+.module.active {
+    display: block;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.styled-table th {
+    background-color: #f0f0f0;
+}
+
+.styled-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.btn {
+    padding: 10px 15px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #357ABD;
+}
+
+.form-container {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.form-container input,
+.form-container select {
+    display: block;
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.cancel {
+    background-color: #ccc;
+}
+
+.cancel:hover {
+    background-color: #bbb;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#search {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+label {
+    margin: 0 5px;
+    font-size: 16px;
+}
+
+select,
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #357ABD;
+    transform: scale(1.05);
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 400px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #f00;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.modal-content input,
+.modal-content select {
+    width: calc(100% - 100px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+.modal-content input:focus,
+.modal-content select:focus {
+    border-color: #4a90e2;
+    outline: none;
+}
+
+.btn {
+    padding: 10px 15px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #357ABD;
+}
+
+.cancel {
+    background-color: #ccc;
+}
+
+.cancel:hover {
+    background-color: #bbb;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.button-group .btn {
+    margin-left: 10px;
+}
+
+.edit-btn {
+    padding: 5px 10px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px;
+}
+
+.edit-btn:hover {
+    background-color: #357ABD;
+}
+
+.edit-btn:focus {
+    outline: none;
+}
+
+#appointmentForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    flex: 0 0 100px;
+    margin-right: 10px;
+}
+
+.form-group input,
+.form-group select {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#calendar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+#workloadAnalysisModal {
+    padding: 20px;
+}
+
+#patientStatisticsModal {
+    padding: 20px;
+}
+
+#sessionDurationStatisticsModal {
+    padding: 20px;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: 100%;
+    left: -20%;
+    transform: translateX(-50%);
+}
+
+.user-dropdown.active .dropdown-content {
+    display: block;
+}
+
+.user-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.user-dropdown {
+    position: relative;
+}
+
+.module {
+    display: none;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    /* Make links block elements */
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    /* Change background on hover */
+}
+
+.logo {
+    flex: 1;
+    /* Add flex property for logo alignment */
+    color: white;
+    font-size: 24px;
+    /* Adjust logo font size */
+}
+
+.full-screen-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+}
+
+.content-wrapper {
+    position: relative;
+    text-align: center;
+}
+
+.top-info-bar {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+}
+
+.w-40{
+    width: 40%;
+}
+
+.therapist-modal{
+    display: none; /* 默认隐藏 */
+    position: fixed; /* 使用 fixed 定位可以确保模态框出现在视口中心 */
+    top: 50%; /* 垂直居中 */
+    left: 50%; /* 水平居中 */
+    transform: translate(-50%, -50%); /* 调整位置以实现完全居中 */
+    height: 400px;
+    width: 800px;
+    padding: 24px;
+    background-color: #fefefe;
+    z-index: 1000; /* 确保模态框在其他内容之上 */
+}
+
+.cross{
+    color: red;
+    /* display: inline-block; */
+    font-size: x-large;
+    /* margin-left: auto; */
+    float: right;
+}
+
+.cross:hover{
+    color: rgb(143, 12, 12);
+    cursor: pointer;
+}
+
+
+
+form{
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 4px;
+    align-items: center;
+}
+
