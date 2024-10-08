@@ -34,11 +34,11 @@ async function handleDelete() {
             })
 
             if (response.ok) {
-                alert('成功')
+                alert('success')
                 window.location.href = './therapist-patients.php'
             }
             else {
-                alert('失败！')
+                alert('failure')
             }
         } catch (error) {
             alert(error)
@@ -72,7 +72,7 @@ function drop(event) {
         // 将拖动的数据放置到目标位置
         cardbody.innerHTML += data; // 将数据添加到 card-body 内
     } else {
-        console.log('出错');
+        console.log('error');
     }
 }
 
@@ -108,11 +108,11 @@ async function handleConfirm(){
             body: formData
           })
           if(response.ok){
-            alert('成功')
+            alert('success')
             window.location.reload()
           }
           else{
-            alert('失败')
+            alert('failure')
 
           }
     } catch (error) {

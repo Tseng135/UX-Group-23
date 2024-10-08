@@ -45,7 +45,7 @@
       <div class="collapse navbar-collapse" id="navbarScroll">
         <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#Home">Home</a>
+            <a class="nav-link active" aria-current="page" href="Index.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#About">About</a>
@@ -117,7 +117,10 @@
     <div class="main">
       <aside class="sidebar">
         <ul>
-          <a href="./therapist-patients.php">
+          <a class="text-decoration-none" href="./therapist-home.html">
+            <li>Dashboard</li>
+          </a>
+          <a class="text-decoration-none" href="./therapist-patients.php">
             <li>Patient Management</li>
           </a>
         </ul>
@@ -317,7 +320,8 @@
     </div>
 
     <div class="mt-4 d-flex justify-content-center">
-      <span id="draggable" class="btn btn-outline-info" draggable="true" ondragstart="drag(event)"><?php echo $row['name']; ?></span>
+      <span id="draggable" class="btn btn-outline-info" draggable="true"
+        ondragstart="drag(event)"><?php echo $row['name']; ?></span>
     </div>
 
     <div class="d-flex justify-content-center">
@@ -345,14 +349,14 @@
         });
 
         if (response.ok) {
-          alert('成功提交：');
+          alert('success');
           window.location.reload()
         } else {
-          alert('提交失败');
+          alert('failure');
         }
       } catch (error) {
-        console.error('错误:', error);
-        alert('发生错误: ' + error.message);
+        console.error('error:', error);
+        alert('error: ' + error.message);
       }
     }
   </script>
