@@ -151,7 +151,7 @@ function loadAppointmentHistory() {
 
 // 加载睡眠数据并显示图表
 function loadSleepData() {
-    fetch('patient.php?action=get_sleep_data')  // 通过GET请求获取数据
+    fetch('../API/patient.php?action=get_sleep_data')  // 通过GET请求获取数据
     .then(response => response.json())
     .then(data => {
         if (data.success) {
@@ -190,7 +190,7 @@ function loadSleepData() {
 
 // 加载饮食数据并显示图表
 function loadDietData() {
-    fetch('patient.php?action=get_diet_data')  // 通过GET请求获取数据
+    fetch('../API/patient.php?action=get_diet_data')  // 通过GET请求获取数据
     .then(response => response.json())
     .then(data => {
         if (data.success) {

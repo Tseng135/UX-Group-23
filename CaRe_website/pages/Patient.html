@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -94,6 +95,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div id="header-placeholder"></div>
@@ -126,9 +128,10 @@
                 <button onclick="showMoodMessage('Excited')">Excited</button>
                 <button onclick="showMoodMessage('Calm')">Calm</button>
             </div>
-        
+
             <!-- Mood message display area -->
-            <div id="mood-message" style="margin-top: 20px; font-size: 18px; font-weight: bold; align-items: center;"></div>
+            <div id="mood-message" style="margin-top: 20px; font-size: 18px; font-weight: bold; align-items: center;">
+            </div>
         </div>
 
         <!-- View Health Records Module -->
@@ -137,15 +140,20 @@
             <div class="list-group">
                 <a href="#" class="list-group-item list-group-item-action">
                     Record #1: Last Checkup
-                    <p class="text-secondary">Last checkup on: June 15, 2024. General health check-up was conducted. Patient reported feeling well and all vital signs were within normal range. No further action required.</p>
+                    <p class="text-secondary">Last checkup on: June 15, 2024. General health check-up was conducted.
+                        Patient reported feeling well and all vital signs were within normal range. No further action
+                        required.</p>
                 </a>
                 <a href="#" class="list-group-item list-group-item-action">
                     Record #2: Vaccination History
-                    <p class="text-secondary">Vaccination History updated: May 20, 2024. Patient received the latest influenza vaccine as well as the second dose of the COVID-19 vaccine. All necessary vaccinations are up to date.</p>
+                    <p class="text-secondary">Vaccination History updated: May 20, 2024. Patient received the latest
+                        influenza vaccine as well as the second dose of the COVID-19 vaccine. All necessary vaccinations
+                        are up to date.</p>
                 </a>
                 <a href="#" class="list-group-item list-group-item-action">
                     Record #3: Allergy Information
-                    <p class="text-secondary">Allergy Information: Patient has a severe allergy to peanuts and moderate allergies to shellfish. EpiPen is prescribed and should be available at all times.</p>
+                    <p class="text-secondary">Allergy Information: Patient has a severe allergy to peanuts and moderate
+                        allergies to shellfish. EpiPen is prescribed and should be available at all times.</p>
                 </a>
             </div>
         </div>
@@ -172,7 +180,8 @@
                         <label for="appointmentTime" class="form-label">Time</label>
                         <input type="time" class="form-control" id="appointmentTime">
                     </div>
-                    <button type="submit" class="btn btn-primary" onclick="bookAppointment(event)">Book Appointment</button>
+                    <button type="submit" class="btn btn-primary" onclick="bookAppointment(event)">Book
+                        Appointment</button>
                 </form>
             </div>
 
@@ -186,44 +195,46 @@
             <div class="list-group" id="appointmentHistory">
                 <!-- 预约历史将在这里显示 -->
             </div>
-            
+
         </div>
 
-<!-- View Sleep Habits Module -->
-<div id="sleepHabits" class="module">
-    <h2>View Sleep Habits</h2>
-    <canvas id="sleepChart" width="400" height="200"></canvas>  <!-- 添加canvas用于显示图表 -->
-</div>
+        <!-- View Sleep Habits Module -->
+        <div id="sleepHabits" class="module">
+            <h2>View Sleep Habits</h2>
+            <canvas id="sleepChart" width="400" height="200"></canvas> <!-- 添加canvas用于显示图表 -->
+        </div>
 
-<!-- View Diet Habits Module -->
-<div id="dietHabits" class="module">
-    <h2>View Diet Habits</h2>
-    <canvas id="dietChart" width="400" height="200"></canvas>  <!-- 添加canvas用于显示图表 -->
-</div>
+        <!-- View Diet Habits Module -->
+        <div id="dietHabits" class="module">
+            <h2>View Diet Habits</h2>
+            <canvas id="dietChart" width="400" height="200"></canvas> <!-- 添加canvas用于显示图表 -->
+        </div>
 
 
-    <!-- JavaScript for Module Switching -->
-    <script>
-        function showModule(moduleId) {
-            const modules = document.querySelectorAll('.module');
-            const navItems = document.querySelectorAll('.sidebar ul li');
+        <!-- JavaScript for Module Switching -->
+        <script>
+            function showModule(moduleId) {
+                const modules = document.querySelectorAll('.module');
+                const navItems = document.querySelectorAll('.sidebar ul li');
 
-            // Hide all modules
-            modules.forEach(module => {
-                module.classList.remove('active');
-            });
+                // Hide all modules
+                modules.forEach(module => {
+                    module.classList.remove('active');
+                });
 
-            // Remove active class from all nav items
-            navItems.forEach(item => {
-                item.classList.remove('active');
-            });
+                // Remove active class from all nav items
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                });
 
-            // Show the selected module and highlight the clicked nav item
-            document.getElementById(moduleId).classList.add('active');
-            event.target.classList.add('active');
-        }
-    </script>
-    <script src="../js/include.js"></script>
-    <script src="../js/patient.js"></script>
+                // Show the selected module and highlight the clicked nav item
+                document.getElementById(moduleId).classList.add('active');
+                event.target.classList.add('active');
+            }
+        </script>
+        <script src="../js/include.js"></script>
+        <script src="../js/patient.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
+
 </html>
