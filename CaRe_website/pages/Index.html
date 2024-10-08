@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="../css/style_global.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src = "../js/style_append.js"></script>
+  <style>
+
+ 
+    
+    .card {
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    }
+    .card img {
+    height: 50px;
+    }
+    .card-title, .card-text {
+    color: black !important;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <div id="header-placeholder"></div>
+
+<!-- Full Screen Sections -->
+<div id="Home" class="full-screen-section" style="background: url('../img/slide1.webp') center/cover no-repeat;">
+    <div class="content-wrapper">
+      <h2 style="background: fixed;">CaRe: Where Healing Begins with Compassion and Connection.</h2>
+      <p style="color: #f0f0f0; font-size: 1.2em; line-height: 1.6; max-width: 800px; margin: 20px auto; text-align: center; background: rgba(0, 0, 0, 0.5); padding: 15px; border-radius: 10px;">
+        We care for the growing needs of our community. We build systems for providing health services for individuals, families, and communities in general.
+      </p>
+      <div class="mt-4">
+        <a href="#cards-section" class="btn btn-light">Learn More</a>
+        <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#quoteModal">Free Quote</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Cards Section (Bridge Between Home and About) -->
+  <div id="cards-section" class="container-fluid py-5" style="background-color: #f8f9fa;">
+    <div class="row text-center">
+      <!-- Card 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <img src="../img/icon card1.png" alt="Expert Therapists" class="mb-3" style="height: 50px;">
+            <h5 class="card-title">Expert Therapists</h5>
+            <p class="card-text">We are a Wiguard. We are here for you to fulfill all kinds of security needs.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <img src="../img/icon card2.png" alt="24x7 Service" class="mb-3" style="height: 50px;">
+            <h5 class="card-title">24x7 Service</h5>
+            <p class="card-text">We are a Wiguard. We are here for you to fulfill all kinds of security needs.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <img src="../img/icon card3.png" alt="Relief Guarantee" class="mb-3" style="height: 50px;">
+            <h5 class="card-title">Relief Guarantee</h5>
+            <p class="card-text">We are a Wiguard. We are here for you to fulfill all kinds of security needs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<!-- About Us Section -->
+<div id="About" class="container-fluid" style="background-color: #f8f9fa;" text-dark py-5>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 position-relative">
+          <img src="../img/about_bg.png" alt="Therapist" class="img-fluid rounded shadow">
+          <div class="position-absolute bottom-0 end-0 mb-3 me-3 p-3 bg-white rounded shadow" style="max-width: 250px;"><a href="https://www.youtube.com/watch?v=D0UnqGm_miA&ab_channel=SolutionsForAll"><img src="../img/video-bg.png" alt="Intro Thumbnail" class="img-fluid rounded"></a>
+            <h5>Watch Our Intro</h5>
+            <p class="small mb-0">Learn more about our compassionate approach and how we support mental well-being.</p>
+          </div>
+        </div>
+        <div class="col-md-6 d-flex align-items-center">
+          <div>
+            <div class="text-center mb-4">
+                <h2>About Us</h2>
+                <h4>Welcome To CaRe Mental Health Clinic</h4>
+              </div>
+            <p>At CaRe, we are dedicated to providing compassionate and accessible mental health support through a personalized approach.
+                Our experienced therapists offer one-on-one sessions, group therapy, and self-guided exercises via our easy-to-use online platform. Patients can track their emotions, sleep, and habits, empowering them to take control of their mental well-being. With tailored treatment plans and secure access for professionals, CaRe is here to support you on your mental health journey every step of the way.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Team Section -->
+<div id="Team" class="full-screen-section" style="background-color: #f8f9fa; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0; margin: 0;">
+    <div class="text-center" style="padding: 0; margin: 0; text-align: center;">
+        <img src="../img/Team_icon.png" alt="Team Icon" class="img-fluid mb-3" style="width: 100px; height: auto;"> 
+        <h2 class="section-title" style="font-weight: bold; margin: 0; color: black;">Our Best Team</h2>
+        <p class="section-subtitle" style="margin: 0; color: black;">Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry.</p>
+    </div>
+ 
+    <!-- Carousel -->
+    <div id="team-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container">
+              <div class="row text-center">
+                <!-- Team Member 1 -->
+                <div class="col-md-4 mb-4">
+                  <div class="card h-100 shadow-sm">
+      <img src="../img/therapist profile.png" alt="Luis Dias" class="card-img-top img-fluid" style="height: 450px; object-fit: cover;">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Dr John Smith</h5>
+                      <p class="card-text">a PhD graduate from Flinders University, specializes in personalized mental health care with a compassionate and patient-centered approach.</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="col-md-4 mb-4">
+                  <div class="card h-100 shadow-sm">
+      <img src="../img/team2.png" alt="Alberto Moreno" class="card-img-top img-fluid" style="height: 450px; object-fit: cover;">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Alberto Moreno</h5>
+                      <p class="card-text">Lorem Ipsum Dolor ...</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Team Member 3 -->
+                <div class="col-md-4 mb-4">
+                  <div class="card h-100 shadow-sm">
+      <img src="../img/team3.png" alt="John Seth" class="card-img-top img-fluid" style="height: 450px; object-fit: cover;">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">John Seth</h5>
+                      <p class="card-text">Lorem Ipsum Dolor ...</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row text-center">
+                <!-- Team Member 4 -->
+                <div class="col-md-4 mb-4">
+                  <div class="card h-100 shadow-sm">
+      <img src="../img/team4.png" alt="Emily Rose" class="card-img-top img-fluid" style="height: 450px; object-fit: cover;">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Emily Rose</h5>
+                      <p class="card-text">Lorem Ipsum Dolor ...</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Team Member 5 -->
+                <div class="col-md-4 mb-4">
+                  <div class="card h-100 shadow-sm">
+      <img src="../img/team5.png" alt="Michael Smith" class="card-img-top img-fluid" style="height: 450px; object-fit: cover;">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Michael Smith</h5>
+                      <p class="card-text">Lorem Ipsum Dolor ...</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Team Member 6 -->
+                <div class="col-md-4 mb-4">
+                  <div class="card h-100 shadow-sm">
+      <img src="../img/team6.png" alt="John Doe" class="card-img-top img-fluid" style="height: 450px; object-fit: cover;">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">John Doe</h5>
+                      <p class="card-text">Lorem Ipsum Dolor ...</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  
+    <!-- Carousel Controls -->
+    <button class="carousel-control-prev btn btn-dark" type="button" data-bs-target="#team-carousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next btn btn-dark" type="button" data-bs-target="#team-carousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  
+
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="role" class="form-label">Role</label>
+              <select class="form-control" id="role">
+                <option>Patient</option>
+                <option>Therapist</option>
+                <option>Admin</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Free Quote Modal -->
+<div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="quoteModalLabel">Get a Free Quote</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="nameInput" class="form-label">Your Name</label>
+              <input type="text" class="form-control" id="nameInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="emailInput" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="emailInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="messageInput" class="form-label">Your Message</label>
+              <textarea class="form-control" id="messageInput" rows="4" required></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="footer-placeholder"></div>
+
+  <script src = "../js/include.js "></script>
+  <script src = "..//js/carousel.js "></script>
+
+</body>
+
+</html>

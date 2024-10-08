@@ -1,0 +1,64 @@
+.vertical-nav {
+    height: 100vh; /* 高度为视口高度 */
+    width: 250px; /* 固定宽度 */
+    position: fixed; /* 固定在左侧 */
+    top: 0;
+    left: 0;
+    background-color: #f8f9fa; /* 浅色背景 */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.vertical-nav .navbar-brand {
+    margin-bottom: 1rem;
+    text-align: center; /* 居中显示 */
+}
+
+.vertical-nav .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+}
+
+.vertical-nav .nav-item {
+    width: 100%;
+    margin-bottom: 10px; /* 每个导航项的间距 */
+}
+
+.vertical-nav .nav-link {
+    color: #333;
+    font-size: 1.1rem;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.vertical-nav .nav-link:hover {
+    background-color: #e9ecef;
+    border-radius: 5px;
+}
+
+/* 用户图标样式 */
+.vertical-nav .user-icon {
+    margin-top: auto; /* 将用户图标放在底部 */
+    text-align: center;
+    font-size: 2rem;
+}
+
+/* 让页面的其余内容在导航栏旁边 */
+.content-wrapper {
+    margin-left: 250px; /* 与导航栏宽度相等 */
+    padding: 20px;
+}
+
+.header {
+    height: 60px; /* 顶部 header 的高度 */
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
