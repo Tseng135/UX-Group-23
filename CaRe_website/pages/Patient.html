@@ -8,76 +8,214 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <style>
+        /* Left Sidebar Styling */
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            background-color: #f8f9fa;
+            position: fixed;
+            padding-top: 20px;
+            border-right: 1px solid #ddd;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #e9ecef;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .sidebar ul li.active {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .module {
+            display: none;
+        }
+
+        .module.active {
+            display: block;
+        }
+
+        /* Appointment Form */
+        .form-control {
+            width: 100%;
+        }
+
+        /* Styling for background of the booking section */
+        .appointment-section {
+            background: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        /* Mood selection */
+        .mood-selection {
+            display: flex;
+            gap: 10px;
+            overflow-x: scroll;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .mood-selection button {
+            padding: 10px 20px;
+            background-color: #e9ecef;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .mood-selection button:hover {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-<!-- Header -->
-<div id="header-placeholder"></div>
 
-<div class="container mt-5" style="height: 100vh;">
-    <h2>Health Records</h2>
-    <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action">Record #1: Last Checkup</a>
-        <a href="#" class="list-group-item list-group-item-action">Record #2: Vaccination History</a>
-        <a href="#" class="list-group-item list-group-item-action">Record #3: Allergy Information</a>
+    <div id="header-placeholder"></div>
+
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li class="active" onclick="showModule('dashboard')">Patient Dashboard</li>
+            <li onclick="showModule('healthRecords')">View Health Records</li>
+            <li onclick="showModule('appointments')">Book Appointment</li>
+            <li onclick="showModule('sleepHabits')">View Sleep Habits</li>
+            <li onclick="showModule('dietHabits')">View Diet Habits</li>
+        </ul>
     </div>
 
-    <h2 class="mt-5">Upload Personal Information</h2>
-    <!-- Personal Information Upload -->
-    <form>
-        <div class="mb-3">
-            <label for="inputGroupFile" class="form-label">Upload Photo</label>
-            <input type="file" class="form-control" id="inputGroupFile" aria-describedby="fileHelp">
-        </div>
-        <div class="mb-3">
-            <label for="patientInfo" class="form-label">Other Information</label>
-            <input type="text" class="form-control" id="patientInfo" placeholder="Enter information here">
-        </div>
-        <button type="submit" class="btn btn-primary">Upload Information</button>
-    </form>
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Patient Dashboard Module -->
+        <div id="dashboard" class="module active">
+            <h2>Patient Dashboard</h2>
+            <p>Welcome to the patient dashboard. Here you can view your health records and manage appointments.</p>
 
-
-    <h2 class="mt-5">Appointment System</h2>
-    <div>
-        <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#appointmentModal">Book New Appointment</button>
-    </div>
-
-    <!-- Modal for Booking Appointments -->
-    <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="appointmentModalLabel">Book Appointment</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="appointmentType" class="form-label">Appointment Type</label>
-                            <select class="form-control" id="appointmentType">
-                                <option>General Checkup</option>
-                                <option>Mental Status Examination</option>
-                                <option>Physical Specialized Examination</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="appointmentDate" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="appointmentDate">
-                        </div>
-                        <div class="mb-3">
-                            <label for="appointmentTime" class="form-label">Time</label>
-                            <input type="time" class="form-control" id="appointmentTime">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Book Appointment</button>
-                    </form>
-                </div>
+            <!-- Mood Selection Feature -->
+            <h3>How are you feeling today?</h3>
+            <div class="mood-selection">
+                <button>Happy</button>
+                <button>Sad</button>
+                <button>Stressed</button>
+                <button>Anxious</button>
+                <button>Excited</button>
+                <button>Calm</button>
             </div>
         </div>
+
+        <!-- View Health Records Module -->
+        <div id="healthRecords" class="module">
+            <h2>Health Records</h2>
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action">
+                    Record #1: Last Checkup
+                    <p class="text-secondary">Last checkup on: June 15, 2024. General health check-up was conducted. Patient reported feeling well and all vital signs were within normal range. No further action required.</p>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    Record #2: Vaccination History
+                    <p class="text-secondary">Vaccination History updated: May 20, 2024. Patient received the latest influenza vaccine as well as the second dose of the COVID-19 vaccine. All necessary vaccinations are up to date.</p>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    Record #3: Allergy Information
+                    <p class="text-secondary">Allergy Information: Patient has a severe allergy to peanuts and moderate allergies to shellfish. EpiPen is prescribed and should be available at all times.</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Book Appointment Module -->
+        <div id="appointments" class="module">
+            <h2>Book New Appointment</h2>
+            <div class="appointment-section">
+                <!-- Appointment Form -->
+                <form>
+                    <div class="mb-3">
+                        <label for="appointmentType" class="form-label">Appointment Type</label>
+                        <select class="form-control" id="appointmentType">
+                            <option>General Checkup</option>
+                            <option>Mental Status Examination</option>
+                            <option>Physical Specialized Examination</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="appointmentDate" class="form-label">Date</label>
+                        <input type="date" class="form-control" id="appointmentDate">
+                    </div>
+                    <div class="mb-3">
+                        <label for="appointmentTime" class="form-label">Time</label>
+                        <input type="time" class="form-control" id="appointmentTime">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Book Appointment</button>
+                </form>
+            </div>
+
+            <!-- Appointment History -->
+            <h2 class="mt-5">Appointment History</h2>
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action">Appointment #1: General Checkup - 2023-09-20 at 10:00</a>
+                <a href="#" class="list-group-item list-group-item-action">Appointment #2: Mental Status Examination - 2023-09-22 at 15:00</a>
+                <a href="#" class="list-group-item list-group-item-action">Appointment #3: Physical Specialized Examination - 2023-09-25 at 09:00</a>
+            </div>
+        </div>
+
+        <!-- View Sleep Habits Module -->
+        <div id="sleepHabits" class="module">
+            <h2>View Sleep Habits</h2>
+            <p>Placeholder for sleep habits chart (will be linked to the database).</p>
+        </div>
+
+        <!-- View Diet Habits Module -->
+        <div id="dietHabits" class="module">
+            <h2>View Diet Habits</h2>
+            <p>Placeholder for diet habits chart (will be linked to the database).</p>
+        </div>
     </div>
-</div>
 
+    <!-- JavaScript for Module Switching -->
+    <script>
+        function showModule(moduleId) {
+            const modules = document.querySelectorAll('.module');
+            const navItems = document.querySelectorAll('.sidebar ul li');
 
-<div id="footer-placeholder"></div>
-<script src = "../js/include.js "></script>
+            // Hide all modules
+            modules.forEach(module => {
+                module.classList.remove('active');
+            });
+
+            // Remove active class from all nav items
+            navItems.forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Show the selected module and highlight the clicked nav item
+            document.getElementById(moduleId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+    <script src="../js/include.js"></script>
+    <script src="../js/patient.js"></script>
 </body>
 </html>
